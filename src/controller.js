@@ -15,8 +15,9 @@ export default class Controller {
     }
   }
 
-  constructor({ view, worker }) {
+  constructor({ view, worker, service }) {
     this.#view = view
+    this.#service = service
     this.#worker = this.#configureWorker(worker)
   }
 
@@ -79,7 +80,7 @@ export default class Controller {
         this.#events.progress({total})
       },
       onOcurrenceUpdate: (...args) => {
-        this.#events.ocurrenceUpdate(args)
+        this.#events.ocurrenceUpdate(...args)
       }
     })
     //console.log('executing on main thread!')

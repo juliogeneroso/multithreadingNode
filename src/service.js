@@ -3,7 +3,7 @@ export default class Service {
     const linesLength = { counter : 0 }
     const progressFn = this.#setupProgress(file.size, onProgress)
     const startedAt = performance.now()
-    const elapsed = () => `${Math.round((performance.now() - startedAt) / 1000)} seconds`
+    const elapsed = () => `${((performance.now() - startedAt) / 1000).toFixed(2)} seconds`
 
 
     const onUpdate = () => {
